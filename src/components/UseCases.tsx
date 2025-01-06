@@ -17,7 +17,7 @@ export default () => {
     },
     {
       name: "Supply Chain & Logistics",
-      desc: "Track items perfectly from origin as they move around the globe. Record every detail as an intrisic detail.",
+      desc: "Track items perfectly from origin as they move around the globe. Record every detail as an intrinsic detail.",
     },
     {
       name: "Customs & Taxation",
