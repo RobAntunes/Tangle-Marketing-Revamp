@@ -1,11 +1,843 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Bento from "../components/Bento";
+import Cases from "../components/UseCases";
+import { AnimatedBeamMultipleInputDemo } from "../components/BeamInputs";
+import { AnimatedBeamMultipleOutputDemo } from "../components/BeamOutputs";
+import { AnimatedConnector } from "../components/AnimatedConnector";
+// import { PulseBeams } from "../components/PulseBeam";
+// import DotPattern from "../components/DotBackground";
+import Layout from "../layouts/Layout.astro";
+import { motion } from "framer-motion";
+import { WorldMap } from "../components/WorldMap";
+import Chart from "../components/Chart";
+import { BlockchainComparison } from "../components/stuff";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// const placeholders = [
+//   "User Controlled Funds",
+//   "Direct Transfers without Intermediaries",
+//   "Decentralized, Programmable Money",
+//   "Web 3 Guarantees, Web 2 UX",
+//   "Recoverability",
+// ];
+
+// const handleChange = (e) => {
+//   console.log(e.target.value);
+// };
+// const onSubmit = (e) => {
+//   e.preventDefault();
+//   console.log("submitted");
+// };
 ---
 
 <Layout>
-	<Welcome />
+  <div class="relative mx-auto md:px-8 font-sans">
+    <div class="">
+      <div class="mdx h-screen">
+        <div
+          class="w-full rounded-lg transition duration-200 border-transparent hover:border-neutral-200"
+          data-orientation="vertical"
+        >
+          <div
+            data-state="closed"
+            data-orientation="vertical"
+            class="border-b bg-gray-100 px-4 rounded-lg border-none"
+          >
+            <div
+              data-state="closed"
+              id="radix-:rq:"
+              hidden=""
+              role="region"
+              aria-labelledby="radix-:rp:"
+              data-orientation="vertical"
+              class="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+              style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+            >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group flex flex-col relative overflow-hidden [&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
+        >
+          <div
+            dir="ltr"
+            data-orientation="horizontal"
+            class="relative mr-auto w-full"
+          >
+          </div><div
+            data-state="active"
+            data-orientation="horizontal"
+            role="tabpanel"
+            aria-labelledby="radix-:rr:-trigger-preview"
+            id="radix-:rr:-content-preview"
+            tabindex="0"
+            class="ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md"
+            style=""
+          >
+            <div class="theme-zinc w-full" style="--radius: 0.5rem;">
+              <div
+                class="preview flex flex-col w-full justify-center items-center"
+              >
+                <div
+                  class="relative flex h-screen flex-col items-center justify-center overflow-hidden px-4 md:px-8"
+                >
+                  <div
+                    class="pointer-events-none absolute inset-0 z-0 grid h-full w-full -rotate-45 transform select-none grid-cols-2 gap-10 md:grid-cols-4"
+                  >
+                    <div class="relative h-full w-full">
+                      <div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div><div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-auto right-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div>
+                    </div><div class="relative h-full w-full">
+                      <div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div><div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-auto right-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div>
+                    </div><div
+                      class="relative h-full w-full bg-gradient-to-b from-transparent via-neutral-100 to-transparent"
+                    >
+                      <div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div><div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-auto right-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div>
+                    </div><div class="relative h-full w-full">
+                      <div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div><div
+                        class="absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)] bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)] [background-size:var(--width)_var(--height)] [mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)] [mask-composite:exclude] z-30 left-auto right-0"
+                        style="--background: #ffffff; --color: rgba(0, 0, 0, 0.2); --height: 5px; --width: 1px; --fade-stop: 90%; --offset: 150px; --color-dark: rgba(255, 255, 255, 0.3); mask-composite: exclude;"
+                      >
+                      </div>
+                    </div>
+                  </div><div
+                    class="absolute left-96 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t via-yellow-500 to-transparent"
+                    style="will-change: transform; transform: translateX(54.714286px) translateY(254.71429px) rotate(-45deg);"
+                  >
+                  </div><div
+                    class="absolute left-96 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t via-yellow-500 to-transparent"
+                    style="will-change: transform; transform: translateX(429px) translateY(429px) rotate(-45deg); opacity: 0;"
+                  >
+                  </div><div
+                    class="absolute left-96 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t via-yellow-500 to-transparent"
+                    style="will-change: transform; transform: translateX(460px) translateY(60px) rotate(-45deg);"
+                  >
+                  </div><div
+                    class="absolute left-96 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t via-yellow-500 to-transparent"
+                    style="will-change: transform; transform: translateX(400px) translateY(-200px) rotate(-45deg);"
+                  >
+                  </div><div
+                    class="absolute z-50 h-2 w-2"
+                    style="left: 1443.5px; top: 567.152588px; transform: translate(-50%, -50%);"
+                  >
+                    <div
+                      class="absolute -inset-x-10 top-0 m-auto h-[4px] w-10 rounded-full bg-gradient-to-r from-transparent via-orange-500 to-transparent blur-sm"
+                      style="opacity: 0; will-change: opacity;"
+                    >
+                    </div><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(36px) translateY(-57px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(31px) translateY(-26px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-29px) translateY(-47px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-20px) translateY(-57px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-31px) translateY(-44px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-36px) translateY(-15px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-23px) translateY(-33px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-26px) translateY(-58px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-22px) translateY(-25px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(25px) translateY(-60px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(13px) translateY(-32px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(3px) translateY(-27px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(-22px) translateY(-24px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(34px) translateY(-55px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(6px) translateY(-51px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(10px) translateY(-35px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(31px) translateY(-42px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(4px) translateY(-27px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(2px) translateY(-27px);"
+                    ></span><span
+                      class="absolute h-1 w-1 rounded-full bg-gradient-to-b"
+                      style="opacity: 0; will-change: auto; transform: translateX(22px) translateY(-37px);"
+                    ></span>
+                  </div><div
+                    class="relative flex space-x-2 items-center z-10 rounded-full bg-neutral-100 py-1.5 px-4 ring-1 ring-white/10 border"
+                  >
+                    <span>Finance 2.0 - Coming Soon</span><svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                      ><path
+                        d="M10.75 8.75L14.25 12L10.75 15.25"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"></path></svg
+                    >
+                  </div><h2
+                    class="text-balance relative z-50 mx-auto mb-4 mt-4 text-center text-3xl font-semibold text-gray-700 md:text-7xl"
+                  >
+                    <span
+                      data-br=":r1q:"
+                      data-brr="1"
+                      style="display: inline-block; vertical-align: top; text-decoration: inherit; text-wrap: balance;"
+                      >Financial Infrastructure for The Next Era of Human
+                      Innovation<div
+                        class="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]"
+                      >
+                      </div>
+                    </span><p
+                      class="relative font-thin mt-6 mb-12 z-50 mx-auto px-4 text-center text-lg text-gray-600"
+                    >
+                      Digital value transfer for the modern economy. Build,
+                      scale, and innovate without traditional constraints.
+                    </p>
+                  </h2>
+                  <!-- <div
+                  class="w-[50%] p-6 rounded-xl flex flex-col items-start justify-center"
+                > -->
+                  <!-- <h3 class="text-gray-700 text-4xl font-thin mb-6">
+                    Join the future of finance, today.
+                  </h3> -->
+                  <!-- <p class="ml-8 mb-2 font-thin">Email</p> -->
+                  <!-- <Input
+                    placeholders={placeholders}
+                    onChange={handleChange}
+                    onSubmit={onSubmit}
+                    client:load
+                  /> -->
+                </div>
+              </div>
+            </div>
+          </div><div
+            data-state="inactive"
+            data-orientation="horizontal"
+            role="tabpanel"
+            aria-labelledby="radix-:rr:-trigger-code"
+            id="radix-:rr:-content-code"
+            tabindex="0"
+            class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            hidden=""
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Bento client:load />
+  <section>
+    <div
+      data-state="active"
+      data-orientation="horizontal"
+      role="tabpanel"
+      aria-labelledby="radix-:r2a:-trigger-preview"
+      id="radix-:r2a:-content-preview"
+      tabindex="0"
+      class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md"
+      style=""
+    >
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <h3 class="text-base/7 font-semibold text-gray-400">
+          Simple, Powerful
+        </h3>
+        <h2 class="text-6xl font-semibold text-[#374151]">Features</h2>
+        <div
+          class="preview flex min-h-[350px] w-full justify-center p-2 sm:p-10 items-center"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto"
+          >
+            <div
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l lg:border-b"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><circle
+                    cx="128"
+                    cy="120"
+                    r="40"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></circle><path
+                    d="M63.8,199.37a72,72,0,0,1,128.4,0"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M222.67,112A95.92,95.92,0,1,1,144,33.33"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><polyline
+                    points="184 56 200 72 232 40"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></polyline></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >User Controlled Funds</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Your money is yours.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><polyline
+                    points="128 80 128 128 168 152"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></polyline><polyline
+                    points="184 104 224 104 224 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></polyline><path
+                    d="M188.4,192a88,88,0,1,1,1.83-126.23C202,77.69,211.72,88.93,224,104"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Recoverability</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                If something happens, it's not a big deal.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><path
+                    d="M123.31,32H200a8,8,0,0,1,8,8V216a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V107.31a8,8,0,0,1,2.34-5.65l67.32-67.32A8,8,0,0,1,123.31,32Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><line
+                    x1="136"
+                    y1="64"
+                    x2="176"
+                    y2="64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><line
+                    x1="80"
+                    y1="120"
+                    x2="176"
+                    y2="192"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><line
+                    x1="176"
+                    y1="120"
+                    x2="80"
+                    y2="192"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><path
+                    d="M66.34,85.66l-16-16a8,8,0,0,1,0-11.32l24-24a8,8,0,0,1,11.32,0l16,16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >No Gas</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Just a capped 0.1% fee on all transactions.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div
+                class="mb-4 relative z-10 px-10 text-neutral-600"
+                class="size-8"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><circle
+                    cx="128"
+                    cy="128"
+                    r="96"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></circle><path
+                    d="M168,128c0,64-40,96-40,96s-40-32-40-96,40-96,40-96S168,64,168,128Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><line
+                    x1="37.46"
+                    y1="96"
+                    x2="218.54"
+                    y2="96"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><line
+                    x1="37.46"
+                    y1="160"
+                    x2="218.54"
+                    y2="160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Web 2.0 + Web 3.0</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-6"
+              >
+                Decentralized where it matters, centralized where it makes
+                sense.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><line
+                    x1="200"
+                    y1="56"
+                    x2="56"
+                    y2="200"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><line
+                    x1="32"
+                    y1="72"
+                    x2="112"
+                    y2="72"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><line
+                    x1="72"
+                    y1="32"
+                    x2="72"
+                    y2="112"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line><line
+                    x1="144"
+                    y1="184"
+                    x2="224"
+                    y2="184"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></line></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Micro Values</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Transfer fractional value
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><path
+                    d="M216,112V56a8,8,0,0,0-8-8H48a8,8,0,0,0-8,8v56c0,96,88,120,88,120S216,208,216,112Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Structural Security</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                In Tangle, it's infeasible to create an invalid transaction.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><path
+                    d="M191.11,112.89c24-24,25.5-52.55,24.75-65.28a8,8,0,0,0-7.47-7.47c-12.73-.75-41.26.73-65.28,24.75L80,128l48,48Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M136,72H74.35a8,8,0,0,0-5.65,2.34L34.35,108.69a8,8,0,0,0,4.53,13.57L80,128"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M184,120v61.65a8,8,0,0,1-2.34,5.65l-34.35,34.35a8,8,0,0,1-13.57-4.53L128,176"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M94.56,187.82C90.69,196.31,77.65,216,40,216c0-37.65,19.69-50.69,28.18-54.56"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Fast Finality</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Transactions are final and secured instantly.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="tabler-icon tabler-icon-heart"
+                  ><path
+                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+                  ></path></svg
+                >
+              </div>
+              <div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Blockchain Interop</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Tangle is fully interoperable with blockchains.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Cases client:load />
+  <section>
+    <div class="mx-auto max-w-5xl px-6 lg:px-8 my-20">
+      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+        Pure Game Theory
+      </h3>
+      <h2 class="text-6xl font-sans font-semibold text-[#374151]">
+        Zero-Trust Physical Item Marketplaces
+      </h2>
+      <p class="font-sans text-2xl">
+        Purchase physical items online with ensured delivery, no 3rd parties.
+        Decentralization intact.
+      </p>
+      <div class="mx-auto max-w-6xl flex justify-center items-center">
+        <AnimatedBeamMultipleInputDemo client:load />
+        <AnimatedConnector client:load />
+        <AnimatedBeamMultipleOutputDemo client:load />
+      </div>
+    </div>
+  </section>
+  <section class="text-gray-200 font-sans relative">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8 z-50 py-20">
+      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+        Bridging the Gap
+      </h3>
+      <h2 class="text-6xl font-sans font-semibold text-[#374151] pb-4 z-50">
+        Total Interoperability with<br /> any Blockchain
+      </h2>
+      <p class="font-sans text-2xl text-[#374151]">
+        Tangle's event driven interoperability layer allows for triggering smart
+        contracts in response to events on any blockchain, and vice-versa.
+      </p>
+    </div>
+  </section>
+  <section class="text-gray-200 font-sans relative text-right m-16 p-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8 z-50 py-20">
+      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+        Laying the Foundations
+      </h3>
+      <h2 class="text-6xl font-sans font-semibold text-[#374151] pb-4 z-50">
+        Providing Developers with Direct Access to Programmable Money
+      </h2>
+      <p class="font-sans text-2xl text-[#374151]">
+        Tangle's API represents something entirely new: a platform that combines
+        the mathematical security of cryptographic systems with the simplicity
+        of REST APIs.
+      </p>
+    </div>
+  </section>
+  <section class="text-gray-200 font-sans relative">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8 z-50 py-20">
+      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+        Bridging the Gap
+      </h3>
+      <h2 class="text-6xl font-sans font-semibold text-[#374151] pb-4 z-50">
+        Smart-Contracts as Apps
+      </h2>
+      <p class="font-sans text-2xl text-[#374151]">
+        Tangle revolutionizes smart contracts by transforming them into
+        full-fledged applications that users can download and run locally on any
+        device.
+      </p>
+    </div>
+  </section>
+  <section>
+    <div class="py-40 bg-white w-full">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-base/7 font-semibold text-gray-400">
+          Beyond the Horizon
+        </p>
+        <p class="font-bold text-xl md:text-6xl text-black">
+          Global{" "}
+          <!-- <span>
+            {
+              "Connectivity".split("").map((word, idx) => (
+                <motion.span
+                client:load
+                  key={idx}
+                  className="inline-block"
+                  initial={{ x: -10, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: idx * 0.04 }}
+                >
+                  {word}
+                </motion.span>
+              ))
+            }
+          </span> -->
+          Connectivity
+        </p>
+        <p class="text-2xl max-w-2xl mx-auto py-4">
+          Experience Economies of Every Scale
+        </p>
+      </div>
+      <WorldMap
+        client:only
+        dots={[
+          {
+            start: {
+              lat: 64.2008,
+              lng: -149.4937,
+            }, // Alaska (Fairbanks)
+            end: {
+              lat: 34.0522,
+              lng: -118.2437,
+            }, // Los Angeles
+          },
+          {
+            start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+            end: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+          },
+          {
+            start: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+            end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
+          },
+          {
+            start: { lat: 51.5074, lng: -0.1278 }, // London
+            end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+          },
+          {
+            start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+            end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
+          },
+          {
+            start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+            end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+          },
+        ]}
+      />
+    </div>
+  </section>
 </Layout>
