@@ -294,7 +294,9 @@ import { BlockchainComparison } from "../components/stuff";
         <h3 class="text-base/7 font-semibold text-gray-400">
           Simple, Powerful
         </h3>
-        <h2 class="text-6xl font-semibold text-[#374151]">Features</h2>
+        <h2 class="font-semibold text-[#374151] text-4xl lg:text-6xl">
+          Features
+        </h2>
         <div
           class="preview flex min-h-[350px] w-full justify-center p-2 sm:p-10 items-center"
         >
@@ -710,63 +712,89 @@ import { BlockchainComparison } from "../components/stuff";
     </div>
   </section>
   <Cases client:only />
-  <section>
-    <div class="mx-auto max-w-5xl px-6 lg:px-8 my-20">
-      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+  <section class="font-sans relative md:text-center lg:m-16 lg:p-16">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8 my-20">
+      <h3
+        class="text-base/7 font-sans text-center lg:text-left font-semibold text-gray-400"
+      >
         Pure Game Theory
       </h3>
-      <h2 class="text-6xl font-sans font-semibold text-[#374151]">
+      <h2
+        class="lg:text-6xl text-4xl font-sans font-semibold text-[#374151] text-center lg:text-left"
+      >
         Zero-Trust Physical Item Marketplaces
       </h2>
-      <p class="font-sans text-2xl">
+      <p class="font-sans lg:text-2xl text-center lg:text-left text-lg">
         Purchase physical items online with ensured delivery, no 3rd parties.
         Decentralization intact.
       </p>
-      <div class="mx-auto max-w-6xl flex justify-center items-center">
-        <AnimatedBeamMultipleInputDemo client:only />
-        <AnimatedConnector client:only />
-        <AnimatedBeamMultipleOutputDemo client:only />
-      </div>
+    </div>
+    <div class="mx-autol hidden max-w-6xl lg:flex justify-center items-center">
+      <AnimatedBeamMultipleInputDemo client:only />
+      <AnimatedConnector client:only />
+      <AnimatedBeamMultipleOutputDemo client:only />
     </div>
   </section>
   <section class="text-gray-200 font-sans relative">
     <div class="mx-auto max-w-4xl px-6 lg:px-8 z-50 py-20">
-      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+      <h3
+        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-left"
+      >
         Bridging the Gap
       </h3>
-      <h2 class="text-6xl font-sans font-semibold text-[#374151] pb-4 z-50">
+      <h2
+        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-left"
+      >
         Total Interoperability with<br /> any Blockchain
       </h2>
-      <p class="font-sans text-2xl text-[#374151]">
+      <p
+        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-left"
+      >
         Tangle's event driven interoperability layer allows for triggering smart
         contracts in response to events on any blockchain, and vice-versa.
       </p>
     </div>
   </section>
-  <section class="text-gray-200 font-sans relative text-right m-16 p-16">
-    <div class="mx-auto max-w-5xl px-6 lg:px-8 z-50 py-20">
-      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
+  <section
+    class="text-gray-200 font-sans relative md:text-center max-w-3xl lg:max-w-5xl lg:m-16 lg:p-16"
+  >
+    <div class="mx-auto max-w-4xl lg:max-w-5xl px-6 lg:px-8 z-50 py-20">
+      <h3
+        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-right"
+      >
         Laying the Foundations
       </h3>
-      <h2 class="text-6xl font-sans font-semibold text-[#374151] pb-4 z-50">
+      <h2
+        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-right"
+      >
         Providing Developers with Direct Access to Programmable Money
       </h2>
-      <p class="font-sans text-2xl text-[#374151]">
+      <p
+        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-right"
+      >
         Tangle's API represents something entirely new: a platform that combines
         the mathematical security of cryptographic systems with the simplicity
         of REST APIs.
       </p>
     </div>
   </section>
-  <section class="text-gray-200 font-sans relative">
-    <div class="mx-auto max-w-4xl px-6 lg:px-8 z-50 py-20">
-      <h3 class="text-base/7 font-sans font-semibold text-gray-400">
-        Bridging the Gap
+  <section
+    class="text-gray-200 font-sans relative md:text-center max-w-3xl lg:max-w-5xl lg:m-16 lg:p-16"
+  >
+    <div class="mx-auto max-w-4xl lg:max-w-5xl px-6 lg:px-8 z-50 py-20">
+      <h3
+        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-left"
+      >
+        A Familiar User Experience
       </h3>
-      <h2 class="text-6xl font-sans font-semibold text-[#374151] pb-4 z-50">
+      <h2
+        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-left"
+      >
         Smart-Contracts as Apps
       </h2>
-      <p class="font-sans text-2xl text-[#374151]">
+      <p
+        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-left"
+      >
         Tangle revolutionizes smart contracts by transforming them into
         full-fledged applications that users can download and run locally on any
         device.
@@ -779,7 +807,7 @@ import { BlockchainComparison } from "../components/stuff";
         <p class="text-base/7 font-semibold text-gray-400">
           Beyond the Horizon
         </p>
-        <p class="font-bold text-xl md:text-6xl text-black">
+        <p class="font-bold text-xl md:text-6xl text-black p-6">
           Global{" "}
           <!-- <span>
             {
@@ -799,7 +827,7 @@ import { BlockchainComparison } from "../components/stuff";
           </span> -->
           Connectivity
         </p>
-        <p class="text-2xl max-w-2xl mx-auto py-4">
+        <p class="text-2xl max-w-2xl mx-auto py-4 px-6">
           Experience Economies of Every Scale
         </p>
       </div>

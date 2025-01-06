@@ -39,10 +39,10 @@ export default () => {
         <h3 className="text-base/7 font-semibold text-gray-400 flex justify-start items-center max-w-7xl flex-wrap">
           No Limits
         </h3>
-        <h2 className="text-6xl font-semibold text-[#374151]">
+        <h2 className="text-4xl lg:text-6xl font-semibold text-[#374151]">
           Endless Possibilities
         </h2>
-        <p className="max-w-xl text-2xl">
+        <p className="max-w-xl text-lg lg:text-2">
           Tangle is fully programmable, makes crypto practical, bridges it
           with the fiat system and allows for global applications. What will you build?
         </p>

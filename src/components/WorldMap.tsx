@@ -43,7 +43,7 @@ export function WorldMap({
   };
 
   return (
-    <div className="max-w-5xl mx-auto aspect-[2/1] bg-white rounded-lg relative font-sans">
+    <div className="max-w-5xl mx-auto aspect-[2/1] bg-white rounded-lg relative font-sans p-6">
       <img
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
         className="h-full w-full pointer-events-none select-none"
