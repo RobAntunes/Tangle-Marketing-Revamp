@@ -709,7 +709,7 @@ import { BlockchainComparison } from "../components/stuff";
       </div>
     </div>
   </section>
-  <Cases client:load />
+  <Cases client:only />
   <section>
     <div class="mx-auto max-w-5xl px-6 lg:px-8 my-20">
       <h3 class="text-base/7 font-sans font-semibold text-gray-400">
@@ -723,9 +723,9 @@ import { BlockchainComparison } from "../components/stuff";
         Decentralization intact.
       </p>
       <div class="mx-auto max-w-6xl flex justify-center items-center">
-        <AnimatedBeamMultipleInputDemo client:load />
-        <AnimatedConnector client:load />
-        <AnimatedBeamMultipleOutputDemo client:load />
+        <AnimatedBeamMultipleInputDemo client:only />
+        <AnimatedConnector client:only />
+        <AnimatedBeamMultipleOutputDemo client:only />
       </div>
     </div>
   </section>
