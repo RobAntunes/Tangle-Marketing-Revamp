@@ -58,7 +58,7 @@ export default function Bento() {
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600">
                   Process transactions at the speed of light, not the network.
-                  Experiece the possibilities of a system that is infinitely
+                  Experience the possibilities of a system that is infinitely
                   scalable.
                 </p>
               </div>

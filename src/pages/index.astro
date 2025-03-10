@@ -11,28 +11,14 @@ import { motion } from "framer-motion";
 import { WorldMap } from "../components/WorldMap";
 import Chart from "../components/Chart";
 import { BlockchainComparison } from "../components/stuff";
-
-// const placeholders = [
-//   "User Controlled Funds",
-//   "Direct Transfers without Intermediaries",
-//   "Decentralized, Programmable Money",
-//   "Web 3 Guarantees, Web 2 UX",
-//   "Recoverability",
-// ];
-
-// const handleChange = (e) => {
-//   console.log(e.target.value);
-// };
-// const onSubmit = (e) => {
-//   e.preventDefault();
-//   console.log("submitted");
-// };
+import { FloatingScrollPrompt } from "../components/FloatingScrollPrompt";
+import { FadeInSection } from "../components/ParallaxBackground";
 ---
 
 <Layout>
   <div class="relative mx-auto md:px-8 font-sans">
     <div class="">
-      <div class="mdx h-screen">
+      <div class="mdx h-screen parallax-hero">
         <div
           class="w-full rounded-lg transition duration-200 border-transparent hover:border-neutral-200"
           data-orientation="vertical"
@@ -81,6 +67,10 @@ import { BlockchainComparison } from "../components/stuff";
                 <div
                   class="relative flex h-screen flex-col items-center justify-center overflow-hidden px-4 md:px-8"
                 >
+                  <div
+                    class="gradient-background absolute inset-0 z-0 opacity-10 parallax-bg-deep"
+                  >
+                  </div>
                   <div
                     class="pointer-events-none absolute inset-0 z-0 grid h-full w-full -rotate-45 transform select-none grid-cols-2 gap-10 md:grid-cols-4"
                   >
@@ -213,7 +203,7 @@ import { BlockchainComparison } from "../components/stuff";
                       style="opacity: 0; will-change: auto; transform: translateX(22px) translateY(-37px);"
                     ></span>
                   </div><div
-                    class="relative flex space-x-2 items-center z-10 rounded-full bg-neutral-100 py-1.5 px-4 ring-1 ring-white/10 border"
+                    class="relative flex space-x-2 items-center z-10 rounded-full bg-neutral-100 py-1.5 px-4 ring-1 ring-white/10 border animate-pulse-subtle"
                   >
                     <span>Finance 2.0 - Coming Soon</span><svg
                       fill="none"
@@ -229,7 +219,7 @@ import { BlockchainComparison } from "../components/stuff";
                         stroke-width="1.5"></path></svg
                     >
                   </div><h2
-                    class="text-balance relative z-50 mx-auto mb-4 mt-4 text-center text-3xl font-semibold text-gray-700 md:text-7xl"
+                    class="text-balance relative z-50 mx-auto mb-4 mt-4 text-center text-3xl font-semibold text-gray-700 md:text-7xl animate-fade-in"
                   >
                     <span
                       data-br=":r1q:"
@@ -241,25 +231,12 @@ import { BlockchainComparison } from "../components/stuff";
                       >
                       </div>
                     </span><p
-                      class="relative font-thin mt-6 mb-12 z-50 mx-auto px-4 text-center text-lg text-gray-600"
+                      class="relative font-thin mt-6 mb-12 z-50 mx-auto px-4 text-center text-lg text-gray-600 animate-slide-up"
                     >
                       Digital value transfer for the modern economy. Build,
                       scale, and innovate without traditional constraints.
                     </p>
                   </h2>
-                  <!-- <div
-                  class="w-[50%] p-6 rounded-xl flex flex-col items-start justify-center"
-                > -->
-                  <!-- <h3 class="text-gray-700 text-4xl font-thin mb-6">
-                    Join the future of finance, today.
-                  </h3> -->
-                  <!-- <p class="ml-8 mb-2 font-thin">Email</p> -->
-                  <!-- <Input
-                    placeholders={placeholders}
-                    onChange={handleChange}
-                    onSubmit={onSubmit}
-                    client:load
-                  /> -->
                 </div>
               </div>
             </div>
@@ -278,7 +255,80 @@ import { BlockchainComparison } from "../components/stuff";
       </div>
     </div>
   </div>
-  <Bento client:load />
+
+  <!-- Stats section commented out for now -->
+  <!--
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <FadeInSection client:load className="mb-16">
+        <h3 class="text-base/7 font-semibold text-center text-gray-400">By The Numbers</h3>
+        <h2 class="text-4xl lg:text-5xl font-semibold text-center text-[#374151] mb-4">Tangle's Impact</h2>
+        <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">
+          A glimpse into the scale and performance of our financial infrastructure.
+        </p>
+      </FadeInSection>
+      
+      <AnimatedStatGroup client:load className="mb-12">
+        <StatCard 
+          label="Transactions Per Second" 
+          value={4500} 
+          suffix="+" 
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          }
+        />
+        <StatCard 
+          label="Total Transactions" 
+          value={1500000} 
+          suffix="+" 
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          }
+        />
+        <StatCard 
+          label="Transaction Fee" 
+          value={0.1} 
+          suffix="%" 
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          }
+        />
+        <StatCard 
+          label="Network Uptime" 
+          value={99.99} 
+          suffix="%" 
+          icon={
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+            </svg>
+          }
+        />
+      </AnimatedStatGroup>
+    </div>
+  </section>
+  -->
+
+  <div class="parallax-container relative overflow-hidden py-24 z-50">
+    <div
+      class="parallax-bg absolute inset-0 bg-gradient-to-b from-gray-50 to-white"
+    >
+    </div>
+    <div class="scroll-reveal parallax-dots absolute inset-0 z-0 opacity-5">
+    </div>
+    <div class="parallax-content relative z-10">
+      <Bento client:load />
+    </div>
+  </div>
+
   <section>
     <div
       data-state="active"
@@ -287,16 +337,18 @@ import { BlockchainComparison } from "../components/stuff";
       aria-labelledby="radix-:r2a:-trigger-preview"
       id="radix-:r2a:-content-preview"
       tabindex="0"
-      class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md"
+      class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md scroll-reveal"
       style=""
     >
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <h3 class="text-base/7 font-semibold text-gray-400">
-          Simple, Powerful
-        </h3>
-        <h2 class="font-semibold text-[#374151] text-4xl lg:text-6xl">
-          Features
-        </h2>
+        <div class="fade-in-section">
+          <h3 class="text-base/7 font-semibold text-gray-400">
+            Simple, Powerful
+          </h3>
+          <h2 class="font-semibold text-[#374151] text-4xl lg:text-6xl">
+            Features
+          </h2>
+        </div>
         <div
           class="preview flex min-h-[350px] w-full justify-center p-2 sm:p-10 items-center"
         >
@@ -304,7 +356,7 @@ import { BlockchainComparison } from "../components/stuff";
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto"
           >
             <div
-              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l lg:border-b"
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l lg:border-b feature-card"
             >
               <div
                 class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
@@ -356,7 +408,7 @@ import { BlockchainComparison } from "../components/stuff";
                 Your money is yours.
               </p>
             </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b"
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b feature-card"
             >
               <div
                 class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
@@ -400,7 +452,7 @@ import { BlockchainComparison } from "../components/stuff";
                 If something happens, it's not a big deal.
               </p>
             </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b"
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b feature-card"
             >
               <div
                 class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
@@ -465,7 +517,7 @@ import { BlockchainComparison } from "../components/stuff";
                 Just a capped 0.1% fee on all transactions.
               </p>
             </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b"
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-b feature-card"
             >
               <div
                 class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent pointer-events-none"
@@ -527,7 +579,128 @@ import { BlockchainComparison } from "../components/stuff";
                 sense.
               </p>
             </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l"
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l feature-card"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><path
+                    d="M216,112V56a8,8,0,0,0-8-8H48a8,8,0,0,0-8,8v56c0,96,88,120,88,120S216,208,216,112Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path></svg
+                >
+              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Structural Security</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                In Tangle, it's infeasible to create an invalid transaction.
+              </p>
+            </div><div
+              class="flex flex-col lg:border-r py-10 relative group/feature feature-card"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 256"
+                  class="size-8"
+                  ><rect width="256" height="256" fill="none"></rect><path
+                    d="M191.11,112.89c24-24,25.5-52.55,24.75-65.28a8,8,0,0,0-7.47-7.47c-12.73-.75-41.26.73-65.28,24.75L80,128l48,48Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M136,72H74.35a8,8,0,0,0-5.65,2.34L34.35,108.69a8,8,0,0,0,4.53,13.57L80,128"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M184,120v61.65a8,8,0,0,1-2.34,5.65l-34.35,34.35a8,8,0,0,1-13.57-4.53L128,176"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path><path
+                    d="M94.56,187.82C90.69,196.31,77.65,216,40,216c0-37.65,19.69-50.69,28.18-54.56"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"></path></svg
+                >
+              </div>
+              <div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Fast Finality</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Transactions are final and secured instantly.
+              </p>
+            </div>
+            <div
+              class="flex flex-col lg:border-r py-10 relative group/feature feature-card"
+            >
+              <div
+                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
+              >
+              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="tabler-icon tabler-icon-heart"
+                  ><path
+                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+                  ></path></svg
+                >
+              </div>
+              <div class="text-lg font-bold mb-2 relative z-10 px-10">
+                <div
+                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
+                >
+                </div><span
+                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
+                  >Blockchain Interop</span
+                >
+              </div><p
+                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
+              >
+                Tangle is fully interoperable with blockchains.
+              </p>
+            </div>
+            <div
+              class="flex flex-col lg:border-r py-10 relative group/feature lg:border-l feature-card"
             >
               <div
                 class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
@@ -587,124 +760,6 @@ import { BlockchainComparison } from "../components/stuff";
               >
                 Transfer fractional value
               </p>
-            </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature"
-            >
-              <div
-                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
-              >
-              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 256 256"
-                  class="size-8"
-                  ><rect width="256" height="256" fill="none"></rect><path
-                    d="M216,112V56a8,8,0,0,0-8-8H48a8,8,0,0,0-8,8v56c0,96,88,120,88,120S216,208,216,112Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="16"></path></svg
-                >
-              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
-                <div
-                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
-                >
-                </div><span
-                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
-                  >Structural Security</span
-                >
-              </div><p
-                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
-              >
-                In Tangle, it's infeasible to create an invalid transaction.
-              </p>
-            </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature"
-            >
-              <div
-                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
-              >
-              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 256 256"
-                  class="size-8"
-                  ><rect width="256" height="256" fill="none"></rect><path
-                    d="M191.11,112.89c24-24,25.5-52.55,24.75-65.28a8,8,0,0,0-7.47-7.47c-12.73-.75-41.26.73-65.28,24.75L80,128l48,48Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="16"></path><path
-                    d="M136,72H74.35a8,8,0,0,0-5.65,2.34L34.35,108.69a8,8,0,0,0,4.53,13.57L80,128"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="16"></path><path
-                    d="M184,120v61.65a8,8,0,0,1-2.34,5.65l-34.35,34.35a8,8,0,0,1-13.57-4.53L128,176"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="16"></path><path
-                    d="M94.56,187.82C90.69,196.31,77.65,216,40,216c0-37.65,19.69-50.69,28.18-54.56"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="16"></path></svg
-                >
-              </div><div class="text-lg font-bold mb-2 relative z-10 px-10">
-                <div
-                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
-                >
-                </div><span
-                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
-                  >Fast Finality</span
-                >
-              </div><p
-                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
-              >
-                Transactions are final and secured instantly.
-              </p>
-            </div><div
-              class="flex flex-col lg:border-r py-10 relative group/feature"
-            >
-              <div
-                class="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent pointer-events-none"
-              >
-              </div><div class="mb-4 relative z-10 px-10 text-neutral-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="tabler-icon tabler-icon-heart"
-                  ><path
-                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-                  ></path></svg
-                >
-              </div>
-              <div class="text-lg font-bold mb-2 relative z-10 px-10">
-                <div
-                  class="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center"
-                >
-                </div><span
-                  class="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800"
-                  >Blockchain Interop</span
-                >
-              </div><p
-                class="text-sm text-neutral-600 max-w-xs relative z-10 px-10"
-              >
-                Tangle is fully interoperable with blockchains.
-              </p>
             </div>
           </div>
         </div>
@@ -713,42 +768,46 @@ import { BlockchainComparison } from "../components/stuff";
   </section>
   <Cases client:only />
   <section class="font-sans relative md:text-center lg:m-16 lg:p-16">
-    <div class="mx-auto max-w-4xl px-6 lg:px-8 my-20">
-      <h3
-        class="text-base/7 font-sans text-center lg:text-left font-semibold text-gray-400"
-      >
-        Pure Game Theory
-      </h3>
-      <h2
-        class="lg:text-6xl text-4xl font-sans font-semibold text-[#374151] text-center lg:text-left"
-      >
-        Zero-Trust Physical Item Marketplaces
-      </h2>
-      <p class="font-sans lg:text-2xl text-center lg:text-left text-lg">
-        Purchase physical items online with ensured delivery, no 3rd parties.
-        Decentralization intact.
-      </p>
-    </div>
+    <FadeInSection client:load className="mb-12">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8 my-20">
+        <h3
+          class="text-base/7 font-sans text-center lg:text-left font-semibold text-gray-400"
+        >
+          Pure Game Theory
+        </h3>
+        <h2
+          class="lg:text-6xl text-4xl font-sans font-semibold text-[#374151] text-center lg:text-left"
+        >
+          Zero-Trust Physical Item Marketplaces
+        </h2>
+        <p class="font-sans lg:text-2xl text-center lg:text-left text-lg">
+          Purchase physical items online with ensured delivery, no 3rd parties.
+          Decentralization intact.
+        </p>
+      </div>
+    </FadeInSection>
     <div class="mx-autol hidden max-w-6xl lg:flex justify-center items-center">
       <AnimatedBeamMultipleInputDemo client:only />
       <AnimatedConnector client:only />
       <AnimatedBeamMultipleOutputDemo client:only />
     </div>
   </section>
-  <section class="text-gray-200 font-sans relative">
-    <div class="mx-auto max-w-4xl px-6 lg:px-8 z-50 py-20">
+  <section
+    class="text-gray-200 font-sans relative md:text-center lg:m-16 lg:p-16"
+  >
+    <div class="mx-auto max-w-4xl px-6 lg:px-8 z-50 py-20 scroll-fade-in">
       <h3
-        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-left"
+        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-left hover-lift"
       >
         Bridging the Gap
       </h3>
       <h2
-        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-left"
+        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-left hover-lift"
       >
         Total Interoperability with<br /> any Blockchain
       </h2>
       <p
-        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-left"
+        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-left hover-lift"
       >
         Tangle's event driven interoperability layer allows for triggering smart
         contracts in response to events on any blockchain, and vice-versa.
@@ -758,19 +817,21 @@ import { BlockchainComparison } from "../components/stuff";
   <section
     class="text-gray-200 font-sans relative md:text-center max-w-3xl lg:max-w-5xl lg:m-16 lg:p-16"
   >
-    <div class="mx-auto max-w-4xl lg:max-w-5xl px-6 lg:px-8 z-50 py-20">
+    <div
+      class="mx-auto max-w-4xl lg:max-w-5xl px-6 lg:px-8 z-50 py-20 scroll-fade-in"
+    >
       <h3
-        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-right"
+        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-right hover-lift"
       >
         Laying the Foundations
       </h3>
       <h2
-        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-right"
+        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-right hover-lift"
       >
         Providing Developers with Direct Access to Programmable Money
       </h2>
       <p
-        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-right"
+        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-right hover-lift"
       >
         Tangle's API represents something entirely new: a platform that combines
         the mathematical security of cryptographic systems with the simplicity
@@ -781,19 +842,21 @@ import { BlockchainComparison } from "../components/stuff";
   <section
     class="text-gray-200 font-sans relative md:text-center max-w-3xl lg:max-w-5xl lg:m-16 lg:p-16"
   >
-    <div class="mx-auto max-w-4xl lg:max-w-5xl px-6 lg:px-8 z-50 py-20">
+    <div
+      class="mx-auto max-w-4xl lg:max-w-5xl px-6 lg:px-8 z-50 py-20 scroll-fade-in"
+    >
       <h3
-        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-left"
+        class="text-base/7 font-sans font-semibold text-gray-400 text-center lg:text-left hover-lift"
       >
         A Familiar User Experience
       </h3>
       <h2
-        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-left"
+        class="lg:text-6xl text-3xl font-sans font-semibold text-[#374151] pb-4 z-50 text-center lg:text-left hover-lift"
       >
         Smart-Contracts as Apps
       </h2>
       <p
-        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-left"
+        class="font-sans text-lg lg:text-2xl text-[#374151] text-center lg:text-left hover-lift"
       >
         Tangle revolutionizes smart contracts by transforming them into
         full-fledged applications that users can download and run locally on any
@@ -801,33 +864,100 @@ import { BlockchainComparison } from "../components/stuff";
       </p>
     </div>
   </section>
+  <!-- Testimonials section commented out for now -->
+  <!--
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <FadeInSection client:load className="mb-16">
+        <h3 class="text-base/7 font-semibold text-center text-gray-400">What People Are Saying</h3>
+        <h2 class="text-4xl lg:text-5xl font-semibold text-center text-[#374151] mb-4">Testimonials</h2>
+      </FadeInSection>
+      
+      <AnimatedTestimonials
+        client:load
+        testimonials={[
+          {
+            quote: "Tangle has revolutionized how we handle microtransactions in our gaming platform. The speed and cost efficiency are unmatched by any other solution we've tried.",
+            author: "Sarah Johnson",
+            title: "CTO, GameStack"
+          },
+          {
+            quote: "We integrated with Tangle for our marketplace payments, and the difference has been night and day. Our users love the instant finality and security guarantees.",
+            author: "Michael Chen",
+            title: "Founder, MarketEdge"
+          },
+          {
+            quote: "As a financial institution, we were skeptical about new payment infrastructure. Tangle has proven its value through rock-solid reliability and compliance-friendly design.",
+            author: "David Rodriguez",
+            title: "Head of Innovation, Global Finance Partners"
+          }
+        ]}
+      />
+    </div>
+  </section>
+  -->
+
+  <!-- Roadmap section commented out for now -->
+  <!--
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <FadeInSection client:load className="mb-16">
+        <h3 class="text-base/7 font-semibold text-center text-gray-400">Looking Forward</h3>
+        <h2 class="text-4xl lg:text-5xl font-semibold text-center text-[#374151] mb-4">Tangle Roadmap</h2>
+        <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">
+          Our vision for building the future of financial infrastructure.
+        </p>
+      </FadeInSection>
+      
+      <AnimatedTimeline 
+        client:load
+        items={[
+          {
+            title: "Core Infrastructure",
+            date: "Q1 2023",
+            description: "Launch of Tangle's core payment infrastructure with fast finality and low fees.",
+            status: "completed"
+          },
+          {
+            title: "Enterprise Integrations",
+            date: "Q3 2023",
+            description: "Partnerships with enterprise clients for high-volume transaction processing.",
+            status: "completed"
+          },
+          {
+            title: "Developer APIs",
+            date: "Q1 2024",
+            description: "Release of comprehensive developer toolkits and APIs for easy integration.",
+            status: "in-progress"
+          },
+          {
+            title: "Blockchain Interoperability",
+            date: "Q4 2024",
+            description: "Full interoperability with major blockchain networks through Tangle's bridge technology.",
+            status: "upcoming"
+          },
+          {
+            title: "Global Expansion",
+            date: "Q2 2025",
+            description: "Expansion to global markets with localized payment solutions and regulatory compliance.",
+            status: "upcoming"
+          }
+        ]}
+      />
+    </div>
+  </section>
+  -->
   <section>
-    <div class="py-40 bg-white w-full">
-      <div class="max-w-7xl mx-auto text-center">
-        <p class="text-base/7 font-semibold text-gray-400">
+    <div class="py-40 bg-white w-full relative overflow-hidden">
+      <div class="floating-dots absolute inset-0 opacity-10"></div>
+      <div class="max-w-7xl mx-auto text-center scroll-fade-in">
+        <p class="text-base/7 font-semibold text-gray-400 hover-lift">
           Beyond the Horizon
         </p>
-        <p class="font-bold text-xl md:text-6xl text-black p-6">
-          Global{" "}
-          <!-- <span>
-            {
-              "Connectivity".split("").map((word, idx) => (
-                <motion.span
-                client:load
-                  key={idx}
-                  className="inline-block"
-                  initial={{ x: -10, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: idx * 0.04 }}
-                >
-                  {word}
-                </motion.span>
-              ))
-            }
-          </span> -->
-          Connectivity
+        <p class="font-bold text-xl md:text-6xl text-black p-6 text-shimmer">
+          Global Connectivity
         </p>
-        <p class="text-2xl max-w-2xl mx-auto py-4 px-6">
+        <p class="text-2xl max-w-2xl mx-auto py-4 px-6 hover-lift">
           Experience Economies of Every Scale
         </p>
       </div>
@@ -869,3 +999,698 @@ import { BlockchainComparison } from "../components/stuff";
     </div>
   </section>
 </Layout>
+
+<style>
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
+
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes dot-float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-5px) translateX(5px);
+    }
+    50% {
+      transform: translateY(5px) translateX(10px);
+    }
+    75% {
+      transform: translateY(10px) translateX(-5px);
+    }
+  }
+
+  /* Animation for accent lines */
+  @keyframes accent-line-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scaleY(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scaleY(1.1);
+    }
+  }
+
+  /* Animation for diagonal lines */
+  @keyframes diagonal-float {
+    0%, 100% {
+      transform: translateY(0) translateX(0) rotate(45deg);
+    }
+    50% {
+      transform: translateY(10px) translateX(10px) rotate(45deg);
+    }
+  }
+
+  /* Animation for crossing lines */
+  @keyframes crossing-line {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 1s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite ease-in-out;
+  }
+
+  .animate-scroll-hint {
+    animation: scroll-hint 1.5s infinite ease-in-out;
+  }
+
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    inset: 0;
+    transform: translateY(0);
+    will-change: transform;
+    background: linear-gradient(135deg, #f5f5f5, #ffffff, #e0e0e0);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Enhanced parallax effects */
+  @media (prefers-reduced-motion: no-preference) {
+    .parallax-hero {
+      perspective: 10px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: visible;
+      position: relative;
+    }
+
+    .parallax-container {
+      perspective: 20px;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+
+    .parallax-bg {
+      transform: translateZ(-12px) scale(2.2);
+      transform-origin: center;
+      z-index: -1;
+    }
+
+    .parallax-bg-deep {
+      transform: translateZ(-15px) scale(2.5);
+      transform-origin: center;
+      z-index: -2;
+    }
+
+    .parallax-content {
+      transform: translateZ(0);
+    }
+  }
+
+  /* Parallax scroll effect for background elements */
+  .parallax-element-1 {
+    transform: translateZ(-8px) scale(1.8);
+  }
+
+  .parallax-element-2 {
+    transform: translateZ(-5px) scale(1.5);
+  }
+
+  .parallax-element-3 {
+    transform: translateZ(-3px) scale(1.3);
+  }
+
+  /* Fade in animation for scrolling */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered animation for feature cards */
+  .feature-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+  }
+
+  .feature-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Add more staggered delay to each feature card */
+  .feature-card:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .feature-card:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .feature-card:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .feature-card:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  .feature-card:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+  .feature-card:nth-child(6) {
+    transition-delay: 0.6s;
+  }
+  .feature-card:nth-child(7) {
+    transition-delay: 0.7s;
+  }
+  .feature-card:nth-child(8) {
+    transition-delay: 0.8s;
+  }
+
+  /* Gradient background animation */
+  .gradient-background {
+    background: linear-gradient(-45deg, #f3f4f6, #ffffff, #e5e7eb, #f9fafb);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Add more scroll animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hover animations */
+  .hover-lift {
+    transition: transform 0.3s ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Text shimmer effect for important headings */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #000000,
+      #333333,
+      #555555,
+      #333333,
+      #000000
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 8s linear infinite;
+  }
+
+  /* Floating dots animation for the global section */
+  .floating-dots {
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: dot-float 15s ease-in-out infinite;
+  }
+
+  /* New background accent lines */
+  .accent-line {
+    position: absolute;
+    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.1), transparent);
+    width: 1px;
+    height: 100%;
+    animation: accent-line-pulse 8s infinite;
+  }
+  
+  .accent-line:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    height: 70%;
+  }
+  
+  .accent-line:nth-child(2) {
+    left: 20%;
+    animation-delay: 1s;
+    height: 60%;
+  }
+  
+  .accent-line:nth-child(3) {
+    left: 40%;
+    animation-delay: 2s;
+    height: 80%;
+  }
+  
+  .accent-line:nth-child(4) {
+    left: 60%;
+    animation-delay: 3s;
+    height: 65%;
+  }
+  
+  .accent-line:nth-child(5) {
+    left: 80%;
+    animation-delay: 4s;
+    height: 75%;
+  }
+  
+  .accent-line:nth-child(6) {
+    left: 90%;
+    animation-delay: 5s;
+    height: 85%;
+  }
+
+  /* Diagonal accent lines */
+  .diagonal-line {
+    position: absolute;
+    background: linear-gradient(45deg, transparent, rgba(79, 70, 229, 0.1), transparent);
+    width: 100px;
+    height: 2px;
+    transform: rotate(45deg);
+    animation: diagonal-float 12s infinite;
+  }
+  
+  .diagonal-line:nth-child(1) {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .diagonal-line:nth-child(2) {
+    top: 35%;
+    right: 15%;
+    animation-delay: 2s;
+  }
+  
+  .diagonal-line:nth-child(3) {
+    bottom: 25%;
+    left: 20%;
+    animation-delay: 4s;
+  }
+  
+  .diagonal-line:nth-child(4) {
+    bottom: 10%;
+    right: 25%;
+    animation-delay: 6s;
+  }
+
+  /* Horizontal accent lines */
+  .horizontal-line {
+    position: absolute;
+    background: linear-gradient(to right, transparent, rgba(236, 72, 153, 0.1), transparent);
+    height: 1px;
+    width: 50%;
+    left: 25%;
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  
+  .horizontal-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(236, 72, 153, 0.3), transparent);
+    animation: crossing-line 8s infinite;
+  }
+  
+  .horizontal-line:nth-child(1) {
+    top: 20%;
+    animation-delay: 0s;
+  }
+  
+  .horizontal-line:nth-child(2) {
+    top: 50%;
+    animation-delay: 2s;
+  }
+  
+  .horizontal-line:nth-child(3) {
+    top: 80%;
+    animation-delay: 4s;
+  }
+
+  /* Background grid pattern */
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(229, 231, 235, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(229, 231, 235, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    opacity: 0.4;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.15,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in sections
+    document
+      .querySelectorAll(".fade-in-section, .scroll-fade-in")
+      .forEach((section) => {
+        observer.observe(section);
+      });
+
+    // Observe all feature cards
+    document.querySelectorAll(".feature-card").forEach((card) => {
+      observer.observe(card);
+    });
+
+    // Enhanced parallax effect
+    const parallaxElements = document.querySelectorAll(".parallax-bg, .parallax-bg-deep");
+    const parallaxContentElements = document.querySelectorAll(".parallax-element-1, .parallax-element-2, .parallax-element-3");
+    
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      parallaxElements.forEach((element) => {
+        const speed = element.classList.contains('parallax-bg-deep') ? 0.8 : 0.5;
+        let yPos;
+        
+        if (element.closest('.parallax-hero')) {
+          // For hero section parallax
+          yPos = -(scrollY * speed);
+          if (element instanceof HTMLElement) {
+            element.style.transform = `translateZ(-15px) scale(2.5) translateY(${yPos}px)`;
+          }
+        } else {
+          // For regular parallax
+          yPos = -(scrollY * speed);
+          if (element instanceof HTMLElement) {
+            element.style.transform = `translateZ(-12px) scale(2.2) translateY(${yPos}px)`;
+          }
+        }
+      });
+      
+      // Additional parallax for content elements
+      parallaxContentElements.forEach((element) => {
+        if (element instanceof HTMLElement) {
+          let speed = 0.2;
+          if (element.classList.contains('parallax-element-2')) speed = 0.15;
+          if (element.classList.contains('parallax-element-3')) speed = 0.1;
+          
+          const yPos = -(scrollY * speed);
+          const baseTransform = element.classList.contains('parallax-element-1') 
+            ? 'translateZ(-8px) scale(1.8)' 
+            : element.classList.contains('parallax-element-2')
+              ? 'translateZ(-5px) scale(1.5)'
+              : 'translateZ(-3px) scale(1.3)';
+              
+          element.style.transform = `${baseTransform} translateY(${yPos}px)`;
+        }
+      });
+    });
+
+    // Add scroll progress indicator
+    const scrollProgress = document.createElement("div");
+    scrollProgress.className = "scroll-progress";
+    document.body.appendChild(scrollProgress);
+
+    window.addEventListener("scroll", () => {
+      const windowScroll = document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (windowScroll / height) * 100;
+
+      scrollProgress.style.width = scrolled + "%";
+    });
+
+    // Add background and accent lines
+    // ... existing background elements code ...
+  });
+</script>
+
+<style>
+  /* Additional animations */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Scroll progress indicator */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(to right, #4f46e5, #ec4899);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+  }
+
+  /* Enhance card hover effects */
+  .feature-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px) !important;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  /* Add subtle gradient borders on hover */
+  .feature-card:hover::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(100, 100, 100, 0.2),
+      transparent
+    );
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  /* Background animated lines */
+  .bg-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.03;
+  }
+
+  .bg-line {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #333, transparent);
+    animation: line-float 15s ease-in-out infinite;
+  }
+
+  @keyframes line-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(30px);
+    }
+  }
+
+  /* Add more button animation */
+  button,
+  a {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  button:hover,
+  a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Add a spinning loader animation for async operations */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Custom color palette accent styles */
+  .accent-color-primary {
+    color: #3b82f6;
+  }
+  
+  .accent-color-secondary {
+    color: #4f46e5;
+  }
+  
+  .accent-color-tertiary {
+    color: #ec4899;
+  }
+
+  .accent-border {
+    position: relative;
+  }
+  
+  .accent-border::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #3b82f6, #4f46e5, #ec4899);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  .accent-border:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Section dividers with accent colors */
+  .section-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(203, 213, 225, 0.3), transparent);
+    margin: 2rem 0;
+  }
+  
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, #3b82f6, #4f46e5, #ec4899);
+  }
+</style>
